@@ -1,0 +1,75 @@
+$border-color: #0515fc;
+$active-color: #f7ef82;
+$text-color: #01097c;
+$text-color--readonly: #000;
+
+:host {
+  background: $border-color;
+  border: 1px solid $border-color;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-column-gap: 1px;
+  grid-template-rows: repeat(9, 5.2em);
+  grid-row-gap: 1px;
+  color: $text-color;
+}
+
+.cell {
+  background: white;
+  position: relative;
+  cursor: pointer;
+
+  &.readonly {
+    color: $text-color--readonly;
+  }
+
+
+  &.active {
+    background: $active-color;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    padding-top: 100%;
+    width: 100%;
+  }
+
+  &.top {
+    border-top: 1px solid $border-color;
+  }
+
+  &.bottom {
+    border-bottom: 1px solid $border-color;
+  }
+
+  &.left {
+    border-left: 1px solid $border-color;
+  }
+
+  &.error {
+    background: red;
+  }
+
+  &.right {
+    border-right: 1px solid $border-color;
+  }
+  mat-select {
+    position: relative;
+    z-index: 2;
+  }
+  .value {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

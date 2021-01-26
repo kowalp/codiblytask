@@ -1,0 +1,71 @@
+sudoku-board {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+}
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  margin-bottom: 16px;
+
+  .left, .center, .right {
+    display: flex;
+    flex: 1;
+  }
+
+  .left {
+    justify-content: flex-start;
+  }
+
+  .center {
+    justify-content: center;
+  }
+
+  .right {
+    justify-content: flex-end;
+  }
+}
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  mat-spinner {
+    margin-bottom: 32px;
+  }
+}
+
+.time {
+  text-align: center;
+  margin: 16px;
+  font-weight: bold;
+}
+.wavy-text {
+  top: 10em;
+  position: relative;
+  -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0,0,0,0.2));
+  span {
+    position: relative;
+    display: inline-block;
+    color: black;
+    font-size: 2em;
+    text-transform: uppercase;
+    animation: animate 1s ease-in-out infinite;
+    animation-delay: calc(0.1s * var(--i));
+  }
+}
+@keyframes animate {
+  0% {
+    transform:  translateY(0px);
+  }
+  20% {
+    transform:  translateY(-20px);
+  }
+  40%, 100% {
+    transform:  translateY(0px);
+  }
+}

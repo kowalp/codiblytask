@@ -1,0 +1,19 @@
+
+<ng-container *ngFor="let row of sudoku; index as rowIndex">
+  <div class="cell"
+       *ngFor="let field of row; index as colIndex"
+       [class.top]="rowIndex % 3 === 0"
+       [class.bottom]="rowIndex % 3 === 2"
+       [class.left]="colIndex % 3 === 0"
+       [class.right]="colIndex % 3 === 2"
+       [class.readonly]="field.readonly"
+       [class.error]="validate && field.value !== field.answer"
+       [class.active]="field === activeField">
+       <ng-container *ngIf="field.value">
+         <div class="value">{{field.value}}</div>
+        </ng-container>
+       <mat-select *ngIf="!field.readonly">
+            <mat-option *ngFor="let item of numberList" (click)="setNumber(field, item.number)">{{item.number}}</mat-option>
+      </mat-select>
+  </div>
+</ng-container>
